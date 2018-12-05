@@ -31,7 +31,7 @@ public class GestionFactory {
 
 		// Association etudiant id -> absences
 		HashMap<Integer, Integer> listEtudiantAbsenceTemp = new HashMap<>();
-		listEtudiantAbsenceTemp.put(listEtudiants.get(0).getId(), 0);
+		listEtudiantAbsenceTemp.put(listEtudiants.get(0).getId(), 1);
 		listEtudiantAbsenceTemp.put(listEtudiants.get(1).getId(), 7);
 
 		return listEtudiantAbsenceTemp;

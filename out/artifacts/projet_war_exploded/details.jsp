@@ -1,5 +1,4 @@
 <%@ page import="projet.Etudiant" %>
-<%@ page import="projet.GestionFactory" %>
 <%@ page import="java.util.*" %>
 <%--
   Created by IntelliJ IDEA.
@@ -9,21 +8,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="etudiant" class="projet.Etudiant" scope="request"/>
+<jsp:useBean id="nbAbsences" type="java.lang.Integer" scope="request"/>
 <html>
   <head>
     <title>Gestion étudiant</title>
   </head>
   <body>
-  <%!
-    private GestionFactory gestionFactory = new GestionFactory();
-    private String id;
-    private Etudiant etudiant;
-  %>
-  <%
-    id = request.getParameter("id");
-    etudiant = gestionFactory.getEtudiantById(Integer.parseInt(id));
-  %>
-    <p>Prénom : <%=etudiant.getPrenom()%> </p>
-    <p>Nom : <%=etudiant.getNom()%></p>
+    <p>Prénom : <jsp:getProperty name="etudiant" property="prenom" /> </p>
+    <p>Nom : <jsp:getProperty name="etudiant" property="nom" /> </p>
+    <p>Absences : <%= nbAbsences %> </p>
   </body>
 </html>

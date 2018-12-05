@@ -22,7 +22,7 @@
   <ul>
   <%
       for (Etudiant etudiant : etudiants) { %>
-      <li><a href="details.jsp?id=<%=etudiant.getId()%>"><%=etudiant.getPrenom()%> <%=etudiant.getNom()%></li></a>
+      <li><a href="ServletTraitementDetails?id=<%=etudiant.getId()%>"><%=etudiant.getPrenom()%> <%=etudiant.getNom()%></li></a>
     <%
     };
   %>
