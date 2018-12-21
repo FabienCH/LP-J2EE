@@ -3,4 +3,66 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <display-name>Gestion Etudiant</display-name>
+    <!-- Titre de l'application -->
+    <context-param>
+        <param-name>title</param-name>
+        <param-value>Gestion Etudiant</param-value>
+    </context-param>
+
+    <!-- URLs communes aux vues -->
+    <context-param>
+        <param-name>entetedepage</param-name>
+        <param-value>/WEB-INF/commun/entetedepage.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pieddepage</param-name>
+        <param-value>/WEB-INF/commun/pieddepage.jsp</param-value>
+    </context-param>
+
+
+    <!--========= Jeu (v3) =========== -->
+    <!-- Servlet controleur -->
+    <servlet>
+        <servlet-name>controller</servlet-name>
+        <servlet-class>projet.Controller</servlet-class>
+        <init-param>
+            <param-name>urlTemplate</param-name>
+            <param-value>/WEB-INF/template.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlIndex</param-name>
+            <param-value>/WEB-INF/content/index.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlDetailsEtudiant</param-name>
+            <param-value>/WEB-INF/content/detailsEtudiant.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlNotes</param-name>
+            <param-value>/WEB-INF/content/notes.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlDetailsNotes</param-name>
+            <param-value>/WEB-INF/content/detailsNotes.jsp</param-value>
+        </init-param>
+    </servlet>
+
+    <!-- Mapping URL/Servlet -->
+    <servlet-mapping>
+        <servlet-name>controller</servlet-name>
+        <url-pattern>/do/*</url-pattern>
+    </servlet-mapping>
+
+    <!--  fichiers d'accueil -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
 </web-app>
