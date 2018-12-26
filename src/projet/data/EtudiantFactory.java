@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class EtudiantFactory {
 
-	private static final EtudiantDAO etudiantDAO = new EtudiantDAO();
+	public static final EtudiantDAO etudiantDAO = new EtudiantDAO();
 
 	public EtudiantFactory() { }
 

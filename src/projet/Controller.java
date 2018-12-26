@@ -1,10 +1,12 @@
 package projet;
 
+import projet.data.GestionFactory;
 import projet.data.Etudiant;
 import projet.data.EtudiantDAO;
-import projet.data.EtudiantFactory;
-import projet.data.GestionFactory;
+import projet.data.Groupe;
+import projet.data.GroupeDAO;
 
+import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -64,7 +66,8 @@ public class Controller extends HttpServlet{
 
     private void doIndex(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException{
-        List<Etudiant> etudiants = EtudiantFactory.getEtudiants();
+
+        List<Etudiant> etudiants = EtudiantDAO.getAll();
         request.setAttribute("etudiants", etudiants);
         request.setAttribute("content", urlIndex);
     }
@@ -73,7 +76,7 @@ public class Controller extends HttpServlet{
         throws ServletException, IOException{
 
         int id = Integer.parseInt(request.getParameter("id"));
-        Etudiant etudiant = EtudiantFactory.getEtudiantById(id);
+        Etudiant etudiant = EtudiantDAO.retrieveById(id);
 
         request.setAttribute("etudiant", etudiant);
         request.setAttribute("content", urlDetailsEtudiant);
@@ -81,7 +84,7 @@ public class Controller extends HttpServlet{
 
     private void doNotes(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
-        List<Etudiant> etudiants = EtudiantFactory.getEtudiants();
+        List<Etudiant> etudiants = EtudiantDAO.getAll();
         request.setAttribute("etudiants", etudiants);
         request.setAttribute("content", urlNotes);
     }
@@ -89,7 +92,7 @@ public class Controller extends HttpServlet{
     private void doDetailsNotes(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         int id = Integer.parseInt(request.getParameter("id"));
-        Etudiant etudiant = EtudiantFactory.getEtudiantById(id);
+        Etudiant etudiant = EtudiantDAO.retrieveById(id);
         System.out.println(etudiant);
         System.out.println(etudiant.getNotes());
         request.setAttribute("etudiant", etudiant);

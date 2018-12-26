@@ -1,5 +1,4 @@
 <%@ page import="projet.data.Etudiant" %>
-<%@ page import="projet.data.EtudiantFactory" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Collection" %>
 <%@ page import="java.util.List" %>

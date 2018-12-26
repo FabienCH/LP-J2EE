@@ -25,6 +25,9 @@ public class Etudiant implements Serializable {
     @MapKeyColumn(name="module")
     private Map<String, Integer> notes = new HashMap<String, Integer>();
 
+	@ManyToOne
+	private Groupe groupe = new Groupe();
+
 	public Etudiant() {
 		super();
 	}
@@ -78,6 +81,20 @@ public class Etudiant implements Serializable {
 
 	public void addNotes(String module, Integer note) {
 		this.notes.put(module, note);
+	}
+
+	public Groupe getGroupe() {
+		return this.groupe;
+	}
+
+	public void setGroupe(Groupe groupe) {
+		this.groupe = groupe;
+		System.out.println("!!! GROUPE !!!");
+		System.out.println(groupe);
+		System.out.println(groupe.getEtudiants());
+		if (!groupe.getEtudiants().contains(this)) {
+			groupe.getEtudiants().add(this);
+		}
 	}
 
 	public String getMoyenne() {

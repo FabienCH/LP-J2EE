@@ -1,1 +1,3 @@
 .DS_Store
+../vendors
+../../out/artifacts/projet_war_exploded/vendors
